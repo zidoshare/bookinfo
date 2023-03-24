@@ -1,0 +1,15 @@
+build:
+  details:
+    context: ./src/details
+  mongodb:
+    context: ./src/mongodb
+  mysqldb:
+    context: ./src/mysqldb
+  ratings:
+    context: ./src/ratings
+  productpage:
+    context: ./src/productpage
+  reviews:
+    context: ./src/reviews
+deploy:
+  - helm upgrade --install bookinfo ./charts --set details.image=${OKTETO_BUILD_DETAILS_IMAGE} --set mongodb.image=${OKTETO_BUILD_MONGODB_IMAGE} --set mysqldb.image=${OKTETO_BUILD_MYSQLDB_IMAGE} --set productpage.image=${OKTETO_BUILD_PRODUCTPAGE_IMAGE} --set ratings.image=${OKTETO_BUILD_RATINGS_IMAGE} --set reviews.image=${OKTETO_BUILD_REVIEWS_IMAGE}
