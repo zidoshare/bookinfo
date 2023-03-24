@@ -4,6 +4,7 @@ metadata:
   name: gateway
   annotations:
     cloudstudio.net/generate-host: "true"
+    dev.okteto.com/auto-ingress: "true"
 spec:
   rules:
   - http:
