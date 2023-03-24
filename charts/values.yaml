@@ -1,0 +1,54 @@
+details:
+  image: cloudstudio-devops-docker.pkg.coding.net/artifacts/dev/bookinfo-details:0.0.1
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
+mongodb:
+  image: cloudstudio-devops-docker.pkg.coding.net/artifacts/dev/bookinfo-mongodb:0.0.1
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
+mysqldb:
+  image: cloudstudio-devops-docker.pkg.coding.net/artifacts/dev/bookinfo-mysqldb:0.0.1
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
+productpage:
+  image: cloudstudio-devops-docker.pkg.coding.net/artifacts/dev/bookinfo-productpage:0.0.1
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
+ratings:
+  image: cloudstudio-devops-docker.pkg.coding.net/artifacts/dev/bookinfo-ratings:0.0.1
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
+reviews:
+  image: cloudstudio-devops-docker.pkg.coding.net/artifacts/dev/bookinfo-reviews:0.0.2
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi

@@ -1,0 +1,42 @@
+project: bookinfo
+
+environments:
+  dev:
+    description: dev
+    isDev: true
+    services:
+      bookinfo:
+        runtime: tcloud-tke
+        version: 0.0.1
+        jobs:
+          deploy:
+            steps:
+              - action: tcloud-actions/deploykit-tke-multi-helm-deploy-task@v1
+                with:
+                  chart: ./charts
+                  chartValues:
+                   details.image: ${CLOUD_STUDIO_BUILD_DETAILS_IMAGE}
+                   mongodb.image: ${CLOUD_STUDIO_BUILD_MONGODB_IMAGE}
+                   mysqldb.image: ${CLOUD_STUDIO_BUILD_MYSQLDB_IMAGE}
+                   #productpage.image: ${CLOUD_STUDIO_BUILD_PRODUCTPAGE_IMAGE}
+                   ratings.image: ${CLOUD_STUDIO_BUILD_RATINGS_IMAGE}
+                   #reviews.image: ${CLOUD_STUDIO_BUILD_REVIEWS_IMAGE}
+                  build:
+                   details:
+                     dockerfile: ./src/details/Dockerfile
+                     dockerContext: ./src/details
+                   mongodb:
+                     dockerfile: ./src/mongodb/Dockerfile
+                     dockerContext: ./src/mongodb
+                   mysqldb:
+                     dockerfile: ./src/mysqldb/Dockerfile
+                     dockerContext: ./src/mysqldb
+                   # productpage:
+                   #   dockerfile: ./src/productpage/Dockerfile
+                   #   dockerContext: ./src/productpage
+                   ratings:
+                     dockerfile: ./src/ratings/Dockerfile
+                     dockerContext: ./src/ratings
+                   #reviews:
+                   #  dockerfile: ./src/reviews/Dockerfile
+                   #  dockerContext: ./src/reviews
