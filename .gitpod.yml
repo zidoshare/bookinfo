@@ -1,2 +1,3 @@
 tasks:
   - init: echo 'ok' && echo 'version 1'
+  - command: echo 'start version 1'
